@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Geolocation - Real Location Tracker</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-map-marker-alt"></i>
+                <h1>IP GeoLocator</h1>
+            </div>
+            <p class="subtitle">Real IP to Location Tracker - Developed by 0x0806</p>
+        </header>
+
+        <main class="main-content">
+            <section class="search-section">
+                <div class="input-group">
+                    <input type="text" id="ipInput" class="ip-input" placeholder="Enter IP address (e.g., 8.8.8.8)">
+                    <button id="lookupBtn" class="lookup-btn">
+                        <i class="fas fa-search"></i>
+                        Lookup
+                    </button>
+                </div>
+                <button id="myIpBtn" class="my-ip-btn">
+                    <i class="fas fa-location-arrow"></i>
+                    Get My Location
+                </button>
+            </section>
+
+            <div id="loadingSpinner" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Locating IP address...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="errorText"></span>
+            </div>
+
+            <div id="resultCard" class="result-card hidden">
+                <div class="result-header">
+                    <h2>Location Details</h2>
+                    <div class="ip-display">
+                        <i class="fas fa-globe"></i>
+                        <span id="displayIp">-</span>
+                    </div>
+                </div>
+
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>Location</label>
+                            <span id="location">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>Country</label>
+                            <span id="country">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>Region</label>
+                            <span id="region">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>City</label>
+                            <span id="city">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-mail-bulk"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>Postal Code</label>
+                            <span id="postal">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>Timezone</label>
+                            <span id="timezone">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>ISP</label>
+                            <span id="isp">-</span>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <div class="result-info">
+                            <label>Coordinates</label>
+                            <span id="coordinates">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <h3>Location on Map</h3>
+                    <div id="map" class="map-container"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 IP GeoLocator - Real location tracking by 0x0806</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
